@@ -1,16 +1,35 @@
 "use strict"
+let list, pokemon = [];
 
-let pokemon = [];
+function getData() {
+    //get list
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+        .then(response => {
+            return response.json();
+        }).then(data => {
+            list = data.results;
+            //loop over the list to get each pokemon
+            for (let element of list) {
+                fetch(element.url).then(response => {
+                    return response.json();
+                }).then(data => {
+                    pokemon.push(data);
+                })
+            }
+        })
 
-fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
-.then((response) => {
-    if (response.ok) {
-        return response.json();
-    } else {
-        throw new Error("ERROR");
+};
+
+window.onload = function () {
+
+    getData();
+
+    setTimeout(buildList, 3000);
+
+    function buildList() {
+        console.log(pokemon);
+        console.log(list);
+        console.log('test');
     }
-})  
-.then(data => {
-  console.log(data);
-})
-.catch((error) => console.error("FETCH ERROR:", error));
+
+}
