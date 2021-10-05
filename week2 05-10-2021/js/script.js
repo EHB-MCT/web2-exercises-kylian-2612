@@ -1,4 +1,6 @@
 "use strict"
+import Team from './team.js';
+
 let list, pokemon = [];
 
 function getData() {
@@ -27,6 +29,13 @@ window.onload = function () {
     setTimeout(buildList, 3000);
 
     function buildList() {
+        pokemon.forEach(element => {
+
+        });
+
+        let showPokemon = `<p>${}</p>`;
+        document.getElementById('pokemon').innerHTML = showPokemon;
+
         console.log(pokemon);
         console.log(list);
         console.log('test');
