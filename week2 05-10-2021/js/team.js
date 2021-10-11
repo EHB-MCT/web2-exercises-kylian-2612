@@ -1,7 +1,7 @@
 export default class Team {
     constructor() {
-        this.teamName = 'Kanto';
-        this.trainer = 'Ash';
+        this.teamName = '';
+        this.trainer = 'Brock';
         this.roster = [];
     }
 
