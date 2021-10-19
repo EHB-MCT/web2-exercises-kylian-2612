@@ -7,3 +7,4 @@ fetch('https://goweather.herokuapp.com/weather/Brussels')
         document.getElementById('testWindow').innerHTML = weather;
 
     });
+    
